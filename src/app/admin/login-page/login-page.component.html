@@ -1,11 +1,63 @@
-<form class="card">
+<form class="card" [formGroup]="form" (ngSubmit)="login()">
   <h2>Login to admin panel</h2>
-
-  <div class="form-control">
+  <div
+    [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}"
+    class="form-control"
+  >
     <label for="email">Email</label>
-    <input id="email" type="email">
-    <div class="validation">
-      <small>Error</small>
+    <input
+      id="email"
+      type="email"
+      name="email"
+      formControlName="email"
+    >
+    <div
+      *ngIf="form.get('email').touched && form.get('email').invalid"
+      class="validation"
+    >
+      <small
+        *ngIf="form.get('email').errors?.['required'] && form.get('email').touched"
+      >
+        Required
+      </small>
+      <small
+        *ngIf="form.get('email').errors?.['email'] && form.get('email').touched"
+      >
+        Incorrect email format
+      </small>
     </div>
   </div>
+  <div
+    [ngClass]="{invalid: form.get('password').touched && form.get('password').invalid}"
+    class="form-control">
+    <label for="password">Password</label>
+    <input
+      id="password"
+      name="password"
+      type="password"
+      autocomplete="new-password"
+      formControlName="password"
+    >
+    <div
+      *ngIf="form.get('password').touched && form.get('password').invalid"
+      class="validation"
+    >
+      <small
+        *ngIf="form.get('password').errors?.['required'] && form.get('password').touched"
+      >
+        Required
+      </small>
+      <small
+        *ngIf="form.get('password').errors?.['minlength'] && form.get('password').touched"
+      >
+        Password should contain at least {{form.get('password').errors?.['minlength'].requiredLength}} symbols
+      </small>
+    </div>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="form.invalid"
+  >Login
+  </button>
 </form>

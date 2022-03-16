@@ -1,11 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule} from "@angular/router";
-import { AdminLayoutComponent } from './shared/components/admin-layout/admin-layout.component';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
-import { CreatePageComponent } from './create-page/create-page.component';
-import { EditPageComponent } from './edit-page/edit-page.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AuthService} from "./shared/services/auth.service";
+
+import {AdminLayoutComponent} from './shared/components/admin-layout/admin-layout.component';
+import {LoginPageComponent} from './login-page/login-page.component';
+import {DashboardPageComponent} from './dashboard-page/dashboard-page.component';
+import {CreatePageComponent} from './create-page/create-page.component';
+import {EditPageComponent} from './edit-page/edit-page.component';
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -17,6 +21,9 @@ import { EditPageComponent } from './edit-page/edit-page.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
     RouterModule.forChild([
       {
         path: '', component: AdminLayoutComponent, children: [
@@ -31,6 +38,10 @@ import { EditPageComponent } from './edit-page/edit-page.component';
   ],
   exports: [
     RouterModule
+  ],
+  providers: [
+    AuthService
   ]
 })
-export class AdminModule { }
+export class AdminModule {
+}
