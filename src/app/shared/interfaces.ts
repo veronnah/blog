@@ -5,6 +5,6 @@ export interface User {
 }
 
 export interface FbAuthResponse {
-  isToken?: string | null,
+  idToken?: string | null,
   expiresIn?: string | undefined,
 }
