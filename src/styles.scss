@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import "variables";
+@import "~quill/dist/quill.core.css";
+@import "~quill/dist/quill.snow.css";
 
 * {
   box-sizing: border-box;

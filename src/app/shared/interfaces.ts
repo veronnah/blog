@@ -11,6 +11,7 @@ export interface FbAuthResponse {
 
 export interface Post {
   id?: string,
+  name?: string,
   title: string,
   text: string,
   author: string,
