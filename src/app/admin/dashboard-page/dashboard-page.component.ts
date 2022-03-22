@@ -11,6 +11,8 @@ import {Subscription} from "rxjs";
 export class DashboardPageComponent implements OnInit, OnDestroy {
   public posts: Post[];
   public pSub: Subscription;
+  public dSub: Subscription;
+  public searchStr = '';
 
   constructor(private postsService: PostsService) {
   }
@@ -21,14 +23,18 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  public remove(id: string){
-
+  public remove(id: string) {
+    this.postsService.remove(id).subscribe(() => {
+      this.posts = this.posts.filter(post => post.id !== id);
+    })
   }
 
   ngOnDestroy() {
     if (this.pSub) {
       this.pSub.unsubscribe();
     }
+    if (this.dSub) {
+      this.dSub.unsubscribe();
+    }
   }
-
 }
