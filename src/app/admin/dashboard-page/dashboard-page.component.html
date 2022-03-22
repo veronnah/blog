@@ -1,1 +1,34 @@
-<p>dashboard-page works!</p>
+<div *ngIf="posts; else loading">
+  <table>
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Author</th>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let post of posts; let idx = index">
+      <td>{{idx + 1}}</td>
+      <td>{{post.author}}</td>
+      <td>{{post.title}}</td>
+      <td>{{post.date | date: 'medium'}}</td>
+      <td>
+        <button
+          class="btn btn-link btn-edit"
+          [routerLink]="['/admin', 'post', post.id, 'edit']"
+        >
+          Edit
+        </button>
+        <button class="btn btn-danger" (click)="remove(post.id)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #loading>
+  <p class="text-center">Loading...</p>
+</ng-template>
