@@ -13,8 +13,6 @@ export class SearchPipe implements PipeTransform {
     return posts.filter(post => {
       const formattedTitle = post.title.toLowerCase().includes(search.toLowerCase());
       const formattedAuthor = post.author.toLowerCase().includes(search.toLowerCase());
-      console.log(formattedTitle)
-      console.log(formattedAuthor)
 
       return formattedTitle || formattedAuthor;
     });

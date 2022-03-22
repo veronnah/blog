@@ -1,4 +1,4 @@
-<div *ngIf="posts; else loading">
+<div *ngIf="posts?.length; else loading">
   <div class="form-control">
     <input
       #searchInput
@@ -42,9 +42,9 @@
   </table>
 </div>
 
-<div *ngIf="displayedPosts?.length === 0"
-     class="message-empty text-center"
->
+<div
+  *ngIf="displayedPosts?.length === 0"
+  class="message-empty text-center">
   {{nothingFoundMessage}}
 </div>
 

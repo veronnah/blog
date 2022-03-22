@@ -31,12 +31,14 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   public remove(id: string) {
     this.submitted = true;
 
-    this.postsService.remove(id).subscribe(() => {
-      this.posts = this.posts?.filter(post => post.id !== id);
-      this.submitted = false;
-    }, () => {
-      this.submitted = false;
-    })
+    this.postsService.remove(id).subscribe({
+        next: () => {
+          this.posts = this.posts?.filter(post => post.id !== id);
+          this.submitted = true;
+        },
+        error: () => this.submitted = false,
+      }
+    );
   }
 
   public search(value: string) {
