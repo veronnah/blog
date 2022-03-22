@@ -9,12 +9,38 @@
   padding: 0;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: $lighter-clr;
   color: #333;
+  font-weight: normal;
+}
+
+.d-flex{
+  display: flex;
+}
+
+.center{
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner{
+  margin-top: 10em;
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: $primary-clr;
+}
+
+.heading{
+  font-weight: 500;
 }
 
 a {
@@ -97,6 +123,7 @@ img {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+  border-radius: 6px;
 
   &:disabled {
     cursor: not-allowed;
@@ -255,6 +282,7 @@ table td {
 
 table th {
   background: $light-clr;
+  font-weight: 500;
 }
 
 .navbar {
@@ -288,7 +316,7 @@ table th {
     margin: 0 0.25rem;
     transition: .3s;
 
-    &.logo{
+    &.logo {
       opacity: 1;
     }
 

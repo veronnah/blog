@@ -1,6 +1,11 @@
 <div *ngIf="posts; else loading">
   <div class="form-control">
-    <input type="text" placeholder="Search in posts..." [(ngModel)]="searchStr">
+    <input
+      #searchInput
+      type="text"
+      placeholder="Search in posts..."
+      (input)="search(searchInput.value)"
+    >
   </div>
   <table>
     <thead>
@@ -12,8 +17,8 @@
       <th>Action</th>
     </tr>
     </thead>
-    <tbody>
-    <tr *ngFor="let post of posts | searchPosts:searchStr; let idx = index">
+    <tbody *ngIf="displayedPosts">
+    <tr *ngFor="let post of displayedPosts; let idx = index">
       <td>{{idx + 1}}</td>
       <td>{{post.author}}</td>
       <td>{{post.title}}</td>
@@ -25,13 +30,26 @@
         >
           Edit
         </button>
-        <button class="btn btn-danger" (click)="remove(post.id)">Delete</button>
+        <button
+          class="btn btn-danger"
+          (click)="remove(post.id)"
+          [disabled]="submitted"
+        >Delete
+        </button>
       </td>
     </tr>
     </tbody>
   </table>
 </div>
 
+<div *ngIf="displayedPosts?.length === 0"
+     class="message-empty text-center"
+>
+  {{nothingFoundMessage}}
+</div>
+
 <ng-template #loading>
-  <p class="text-center">Loading...</p>
+  <div class="spinner d-flex center">
+    <mat-spinner></mat-spinner>
+  </div>
 </ng-template>

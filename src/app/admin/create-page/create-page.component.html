@@ -1,5 +1,5 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
-  <h1>Create new post</h1>
+  <h1 class="text-center heading">Create new post</h1>
 
   <div
     [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}"
@@ -52,7 +52,7 @@
 
   <button
     type="submit"
-    class="btn btn-block btn-dark"
+    class="btn btn-block btn-success"
     [disabled]="form.invalid"
   >Create post
   </button>
