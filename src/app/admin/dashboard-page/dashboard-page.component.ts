@@ -50,8 +50,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  private checkPosts(){
-    console.log(this.displayedPosts)
+  private checkPosts() {
     if (!this.displayedPosts || !this.displayedPosts.length) {
 
       this.noPostsMessage = 'No posts yet';
