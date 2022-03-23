@@ -1,4 +1,4 @@
-<div *ngIf="posts?.length; else loading">
+<div *ngIf="!errorMessage && !noPostsMessage && !loading">
   <div class="form-control">
     <input
       #searchInput
@@ -7,7 +7,7 @@
       (input)="search(searchInput.value)"
     >
   </div>
-  <table>
+  <table *ngIf="displayedPosts?.length">
     <thead>
     <tr>
       <th>#</th>
@@ -17,7 +17,7 @@
       <th>Action</th>
     </tr>
     </thead>
-    <tbody *ngIf="displayedPosts">
+    <tbody>
     <tr *ngFor="let post of displayedPosts; let idx = index">
       <td>{{idx + 1}}</td>
       <td>{{post.author}}</td>
@@ -43,13 +43,14 @@
 </div>
 
 <div
-  *ngIf="displayedPosts?.length === 0"
+  *ngIf="errorMessage || nothingFoundMessage || noPostsMessage"
   class="message-empty text-center">
-  {{nothingFoundMessage}}
+  {{errorMessage || nothingFoundMessage || noPostsMessage}}
 </div>
 
-<ng-template #loading>
-  <div class="spinner d-flex center">
-    <mat-spinner></mat-spinner>
-  </div>
-</ng-template>
+<div
+  class="spinner d-flex center"
+  *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
+

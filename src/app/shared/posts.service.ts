@@ -29,7 +29,7 @@ export class PostsService {
     return this.http.get(`${environment.fbDbUrl}/posts.json`)
       .pipe(
         map((response: { [key: string]: any }) => {
-          if(response){
+          if (response) {
             return Object.keys(response)
               .map(key => ({
                 ...response[key],
@@ -37,9 +37,9 @@ export class PostsService {
                 date: new Date(response[key].date),
               }));
           } else {
-          return null;
+            return null;
           }
-      }));
+        }));
   }
 
   public remove(id: string): Observable<void> {

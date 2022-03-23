@@ -1,8 +1,15 @@
 <nav class="navbar bg-primary">
-  <h1>
-    <a routerLink="/" class="logo">Admin</a>
-  </h1>
-  <ul *ngIf="auth.isAuthenticated()">
+  <div class="nav-left d-flex center">
+    <!--    <mat-icon routerLink="/" aria-hidden="false" aria-label="Example home icon" class="home-icon">home</mat-icon>-->
+    <mat-icon routerLink="/" class="exit-icon">exit_to_app</mat-icon>
+    <div class="logo-admin d-flex center">
+      <div class="avatar d-flex center">
+        <mat-icon class="avatar-icon">person</mat-icon>
+      </div>
+      <span>Admin</span>
+    </div>
+  </div>
+  <ul class="nav-right" *ngIf="auth.isAuthenticated()">
     <li routerLinkActive="active">
       <a [routerLink]="['/admin', 'dashboard']">Main</a>
     </li>
