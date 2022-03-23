@@ -29,8 +29,6 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getPosts();
-
-
   }
 
   public getPosts() {

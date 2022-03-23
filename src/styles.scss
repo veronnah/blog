@@ -297,12 +297,18 @@ table {
 table th,
 table td {
   padding: 1rem;
-  text-align: left;
+  text-align: center;
 }
 
-table th {
-  background: $light-clr;
-  font-weight: 500;
+table {
+  th {
+    background: $light-clr;
+    font-weight: 500;
+
+    &:last-child {
+      width: 210px;
+    }
+  }
 }
 
 .navbar {
@@ -367,6 +373,7 @@ table th {
     opacity: .7;
     margin: 0 0.25rem;
     transition: .3s;
+    font-size: 20px;
 
     &.logo {
       opacity: 1;

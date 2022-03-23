@@ -23,14 +23,19 @@ export class LoginPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.checkMessage();
+    this.initLoginForm();
+  }
+
+  public checkMessage() {
     this.route.queryParams.subscribe((params: Params) => {
-      if (params['loginAgain']) {
-        this.message = 'Login first to access this page';
-      } else if (params ['authFailed']) {
-        this.message = 'The session has expired. Please login again'
+      if (params ['authFailed']) {
+        this.message = 'The session has expired. Please login again';
       }
     });
+  }
 
+  public initLoginForm() {
     this.form = new FormGroup({
       email: new FormControl(null, [
         Validators.email,
