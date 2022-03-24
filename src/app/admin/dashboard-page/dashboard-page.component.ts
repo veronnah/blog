@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PostsService} from "../../shared/posts.service";
 import {Post} from "../../shared/interfaces";
 import {Subscription} from "rxjs";
+import {NotifierService} from "../shared/services/notifier.service";
 
 @Component({
   selector: 'app-dashboard-page',
@@ -24,7 +25,9 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   public nothingFoundMessage: string;
   public noPostsMessage: string;
 
-  constructor(private postsService: PostsService) {
+  constructor(private postsService: PostsService,
+              private notifierService: NotifierService,
+  ) {
   }
 
   ngOnInit(): void {
@@ -67,6 +70,9 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
         error: () => this.submitted = false,
       }
     );
+
+    // this.alert.warning('Post has been deleted');
+    this.notifierService.showSnackbar('Post has been deleted', 'success');
   }
 
   public search(value: string) {

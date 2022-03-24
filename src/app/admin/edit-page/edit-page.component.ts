@@ -4,6 +4,8 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {Subscription, switchMap} from "rxjs";
 import {Post} from "../../shared/interfaces";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AlertService} from "../shared/services/alert.service";
+import {NotifierService} from "../shared/services/notifier.service";
 
 @Component({
   selector: 'app-edit-page',
@@ -21,6 +23,8 @@ export class EditPageComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private postsService: PostsService,
+    private alert: AlertService,
+    private notifierService: NotifierService,
   ) {
   }
 
@@ -56,7 +60,9 @@ export class EditPageComponent implements OnInit, OnDestroy {
       text: this.form.value.text,
     }).subscribe(() => {
       this.submitted = false;
-    })
+      // this.alert.success('Changes saved successfully');
+      this.notifierService.showSnackbar('Changes successfully saved', 'success');
+    });
   }
 
   ngOnDestroy() {
@@ -64,5 +70,4 @@ export class EditPageComponent implements OnInit, OnDestroy {
       this.updateSub.unsubscribe();
     }
   }
-
 }

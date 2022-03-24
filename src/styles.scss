@@ -27,6 +27,35 @@ body {
   margin: 0;
 }
 
+.mat-snack-bar-container {
+  color: #fff;
+  padding: 0 !important;
+
+  .notify-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+    height: 48px;
+  }
+
+  &.error {
+    background-color: $danger-clr;
+  }
+
+  &.success {
+    background-color: $success-clr;
+  }
+
+  &.warning {
+    background-color: $warning-clr;
+  }
+
+  .mat-button {
+    color: #fff;
+  }
+}
+
 .message-empty {
   font-size: 26px;
   text-transform: uppercase;

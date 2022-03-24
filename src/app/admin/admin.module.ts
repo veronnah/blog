@@ -13,6 +13,7 @@ import {EditPageComponent} from './edit-page/edit-page.component';
 import {AuthGuard} from "./shared/services/auth.guard";
 
 import {SearchPipe} from "./shared/pipes/search.pipe";
+import { AlertComponent } from './shared/components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {SearchPipe} from "./shared/pipes/search.pipe";
     CreatePageComponent,
     EditPageComponent,
     SearchPipe,
+    AlertComponent,
   ],
   imports: [
     CommonModule,
