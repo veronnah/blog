@@ -1,7 +1,14 @@
-<div class="posts">
-  <app-post></app-post>
-  <app-post></app-post>
-  <app-post></app-post>
-  <app-post></app-post>
-  <app-post></app-post>
+<div
+  *ngIf="posts$ | async as posts; else loading"
+  class="posts">
+  <app-post
+    *ngFor="let post of posts"
+    [post]="post"
+  ></app-post>
 </div>
+
+<ng-template #loading>
+  <div class="spinner d-flex center">
+    <mat-spinner class="user"></mat-spinner>
+  </div>
+</ng-template>

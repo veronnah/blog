@@ -1,6 +1,7 @@
 import {NgModule, Provider} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {SharedModule} from "./shared/shared.module";
+import {MatButtonModule} from "@angular/material/button";
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -12,7 +13,11 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {AuthInterceptor} from "./shared/auth.interceptor";
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {NotifierComponent} from "./admin/shared/components/notifier/notifier.component";
-import {MatButtonModule} from "@angular/material/button";
+
+import {registerLocaleData} from "@angular/common";
+import plLocale from "@angular/common/locales/pl";
+
+registerLocaleData(plLocale, 'pl');
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
