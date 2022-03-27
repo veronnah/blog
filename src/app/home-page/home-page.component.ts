@@ -17,6 +17,15 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.posts$ = this.postsService.getAll();
+
+    this.posts$.subscribe((posts) => {
+
+      //TODO: image preview
+
+      // posts?.forEach(post => {
+      //   console.log(post.text)
+      // })
+    });
   }
 
 }

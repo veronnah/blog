@@ -1,26 +1,24 @@
-<div class="post">
-  <div class="header">
-    <h1>Post title</h1>
+<div *ngIf="post$ | async as post; else loading">
+  <div class="post">
+    <div class="header">
+      <h1>{{post.title}}</h1>
 
-    <button routerLink="/" class="btn btn-link">Back to the main</button>
-  </div>
+      <button routerLink="/" class="btn btn-link">Back to the main</button>
+    </div>
 
-  <div class="info">
-    <strong>By Admin</strong>
-    <small>08.09.2022</small>
-  </div>
+    <div class="info">
+      <strong>By {{post.author}}</strong>
+      <small>{{post.date | date: 'medium':null:'pl'}}</small>
+    </div>
 
-  <div>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-      standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-    </p>
-    <p>Type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-      remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-      Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-      of Lorem Ipsum.
-    </p>
-    <p>Type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-      remaining essentially unchanged.
-    </p>
+    <div>
+      <quill-view-html [content]="post.text"></quill-view-html>
+    </div>
+
   </div>
 </div>
+<ng-template #loading>
+  <div class="spinner d-flex center">
+    <mat-spinner class="user"></mat-spinner>
+  </div>
+</ng-template>

@@ -39,7 +39,7 @@ export class CreatePageComponent implements OnInit {
       text: this.form.value.text,
       date: new Date(),
     }
-
+    console.log(post)
     this.postsService.create(post).subscribe(() => {
       this.form.reset();
       // this.alert.success('Post has been created');
