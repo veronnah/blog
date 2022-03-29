@@ -1,6 +1,46 @@
-<nav class="navbar main bg-user">
-  <h3>Articles.net</h3>
-</nav>
+<header
+  class="header"
+  [ngClass]="{'fixed': isFixedNavbar}"
+>
+  <nav
+    class="navbar container"
+    [ngClass]="{'stretched': isShown}"
+  >
+    <div class="logo-user" routerLink="/">
+      Articles.net
+    </div>
+    <div
+      class="nav-menu"
+      [ngClass]="{'shown': isShown}"
+    >
+      <ul>
+        <li routerLinkActive="active">
+          <a routerLink="/">Blog</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/">About</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/">Contact</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/">Shop</a>
+        </li>
+      </ul>
+    </div>
+    <div class="socials">
+      <a href="https://www.instagram.com/veronnah_/" target="_blank">
+        <img src="assets/img/instagram.svg" alt="instagram">
+      </a>
+      <a href="https://twitter.com/home" target="_blank">
+        <img src="assets/img/twitter.svg" alt="twitter">
+      </a>
+    </div>
+    <button mat-icon-button color="basic" aria-label="Example icon button with a menu icon" class="menu-btn"(click)="toggleMenu()">
+      <mat-icon>{{navbarOpened ? 'close' : 'menu'}}</mat-icon>
+    </button>
+  </nav>
+</header>
 <div class="container">
   <router-outlet></router-outlet>
 </div>
