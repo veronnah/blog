@@ -2,6 +2,7 @@ import {NgModule, Provider} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {SharedModule} from "./shared/shared.module";
 import {MatButtonModule} from "@angular/material/button";
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -16,6 +17,7 @@ import {NotifierComponent} from "./admin/shared/components/notifier/notifier.com
 
 import {registerLocaleData} from "@angular/common";
 import plLocale from "@angular/common/locales/pl";
+import { environment } from '../environments/environment';
 
 registerLocaleData(plLocale, 'pl');
 
@@ -41,6 +43,12 @@ const INTERCEPTOR_PROVIDER: Provider = {
     AppRoutingModule,
     SharedModule,
     MatButtonModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]
