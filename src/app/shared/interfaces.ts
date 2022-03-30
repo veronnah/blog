@@ -15,5 +15,6 @@ export interface Post {
   title: string,
   text: string,
   author: string,
+  photo: any,
   date: Date,
 }

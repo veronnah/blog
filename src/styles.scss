@@ -7,6 +7,8 @@
 @import "~quill/dist/quill.core.css";
 @import "~quill/dist/quill.snow.css";
 
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,6 +28,17 @@ body {
   font-weight: normal;
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: $light-clr;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #afafaf;
+  opacity: .7;
+  border-radius: 6px;
+}
+
 .mat-typography {
   font-family: 'Poppins', sans-serif;
 }
@@ -33,6 +46,10 @@ body {
 .mat-h1, .mat-headline, .mat-typography h1,
 .mat-h3, .mat-subheading-2, .mat-typography h3 {
   margin: 0;
+}
+
+.ql-editor{
+  min-height: 200px;
 }
 
 .mat-snack-bar-container {
@@ -98,7 +115,7 @@ body {
 
   &.user {
     circle {
-      stroke: $user-clr;
+      stroke: $dark-clr;
     }
   }
 }
@@ -108,7 +125,7 @@ body {
 }
 
 a {
-  color: $primary-clr;
+  color: #fff;
   cursor: pointer;
   text-decoration: none;
 
@@ -367,6 +384,7 @@ table {
 }
 
 .header {
+  z-index: 9;
   transition: .4s all;
 
   &.fixed {

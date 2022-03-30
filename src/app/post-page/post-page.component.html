@@ -12,6 +12,9 @@
     </div>
 
     <div>
+      <div *ngIf="post.photo">
+        <img [src]="post.photo" alt="Post image">
+      </div>
       <quill-view-html [content]="post.text"></quill-view-html>
     </div>
 
@@ -19,6 +22,6 @@
 </div>
 <ng-template #loading>
   <div class="spinner d-flex center">
-    <mat-spinner class="user"></mat-spinner>
+    <app-spinner></app-spinner>
   </div>
 </ng-template>

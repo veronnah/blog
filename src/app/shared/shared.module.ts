@@ -4,6 +4,7 @@ import {QuillModule} from "ngx-quill";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {SpinnerComponent} from './components/spinner/spinner.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,10 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MatProgressSpinnerModule,
     MatIconModule,
     MatSnackBarModule,
+    SpinnerComponent,
+  ],
+  declarations: [
+    SpinnerComponent
   ]
 })
 

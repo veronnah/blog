@@ -1,0 +1,10 @@
+.post-image {
+  max-width: 200px;
+  height: 150px;
+  width: 100%;
+
+  img {
+    object-fit: cover;
+    height: 100%;
+  }
+}

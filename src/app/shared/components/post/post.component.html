@@ -3,6 +3,9 @@
     <h2>{{post.title}}</h2>
     <small>{{post.date | date: 'dd.MM.yyyy'}}</small>
   </div>
+  <div class="post-image" *ngIf="post.photo">
+    <img [src]="post.photo" alt="Post image">
+  </div>
   <div>
     <small>By {{post.author}}</small>
   </div>

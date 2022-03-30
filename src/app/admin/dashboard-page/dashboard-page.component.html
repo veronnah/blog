@@ -1,4 +1,4 @@
-<div *ngIf="!errorMessage && !noPostsMessage && !loading">
+<div class="wrapper" *ngIf="!errorMessage && !noPostsMessage && !loading">
   <div class="form-control">
     <input
       #searchInput
@@ -51,5 +51,5 @@
 <div
   class="spinner d-flex center"
   *ngIf="loading">
-  <mat-spinner></mat-spinner>
+  <app-spinner></app-spinner>
 </div>
