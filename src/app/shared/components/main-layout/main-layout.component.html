@@ -18,10 +18,10 @@
           <a routerLink="/">Blog</a>
         </li>
         <li routerLinkActive="active">
-          <a routerLink="/">About</a>
+          <a routerLink="/about">About</a>
         </li>
         <li routerLinkActive="active">
-          <a routerLink="/">Contact</a>
+          <a routerLink="/contact">Contact</a>
         </li>
 
       </ul>
@@ -34,7 +34,9 @@
         <img src="assets/img/twitter.svg" alt="twitter">
       </a>
     </div>
-    <button mat-icon-button color="basic" aria-label="Example icon button with a menu icon" class="menu-btn"(click)="toggleMenu()">
+    <button mat-icon-button color="basic"
+            class="menu-btn"
+            (click)="toggleMenu()">
       <mat-icon>{{navbarOpened ? 'close' : 'menu'}}</mat-icon>
     </button>
   </nav>

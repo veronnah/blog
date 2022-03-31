@@ -19,6 +19,8 @@ import {AuthInterceptor} from "./shared/auth.interceptor";
 import {registerLocaleData} from "@angular/common";
 import plLocale from "@angular/common/locales/pl";
 import {environment} from '../environments/environment';
+import { AboutPageComponent } from './about-page/about-page.component';
+import { NotfoundPageComponent } from './notfound-page/notfound-page.component';
 
 registerLocaleData(plLocale, 'pl');
 
@@ -36,6 +38,8 @@ const INTERCEPTOR_PROVIDER: Provider = {
     PostPageComponent,
     PostComponent,
     NotifierComponent,
+    AboutPageComponent,
+    NotfoundPageComponent,
   ],
   imports: [
     BrowserModule,
