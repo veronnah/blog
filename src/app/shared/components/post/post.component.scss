@@ -1,5 +1,17 @@
 .card {
   transition: .4s;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-content {
+    margin-bottom: .5rem;
+  }
 
   &:hover {
     .card-content {
@@ -26,9 +38,9 @@
   }
 
   .card-content {
+    min-height: 190px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 12px 40px;
     border-radius: 0 0 6px 6px;

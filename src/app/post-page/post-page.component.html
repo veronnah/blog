@@ -2,7 +2,6 @@
   <div class="post">
     <div class="header">
       <h1>{{post.title}}</h1>
-
       <button routerLink="/" class="btn btn-link">Back to the main</button>
     </div>
 
@@ -12,7 +11,7 @@
     </div>
 
     <div>
-      <div *ngIf="post.photo">
+      <div *ngIf="post.photo" class="post-image">
         <img [src]="post.photo" alt="Post image">
       </div>
       <quill-view-html [content]="post.text"></quill-view-html>

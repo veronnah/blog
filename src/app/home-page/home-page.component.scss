@@ -1,7 +1,9 @@
+@import "src/variables";
+
 .posts {
   margin: 50px auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
 }
@@ -9,4 +11,36 @@
 app-post {
   max-width: 370px;
   width: 100%;
+
+  &:nth-child(odd) {
+    .card {
+      .card-image {
+        height: 370px !important;
+      }
+    }
+  }
+
+  &:nth-child(even) {
+    .card {
+      .card-image {
+        height: 533px !important;
+      }
+    }
+  }
+
+  &:nth-child(4n+2),
+  &:nth-child(2n+2),
+  &:nth-child(2n+1),
+  &:nth-child(5n+1) {
+    .card {
+      transform: translateY($card-transformPX);
+    }
+  }
+
+  &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(5) {
+    .card {
+      transform: none;
+    }
+  }
 }
+

@@ -4,12 +4,25 @@
     justify-content: space-between;
     align-content: center;
   }
-  h1{
+
+  .post-image {
+    height: 460px;
+    object-fit: cover;
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      border-radius: 7px;
+      width: 100%;
+    }
+  }
+
+  h1 {
     margin-bottom: .5rem;
   }
 
-  .info{
-    strong{
+  .info {
+    strong {
       margin-right: 1rem;
     }
   }

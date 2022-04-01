@@ -176,28 +176,6 @@ img {
   text-align: center;
 }
 
-.card {
-  border-radius: 6px;
-  cursor: pointer;
-  transition: .3s all;
-
-  &:hover {
-    //-webkit-box-shadow: 3px 0 19px -15px rgba(0, 0, 0, 0.71);
-    //-moz-box-shadow: 3px 0 19px -15px rgba(0, 0, 0, 0.71);
-    //box-shadow: 3px 0 19px -15px rgba(0, 0, 0, 0.71);
-  }
-
-  &-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &-content {
-    margin-bottom: .5rem;
-  }
-}
-
 .list {
   margin: 0.5rem 0;
 
@@ -423,7 +401,7 @@ table {
 
     .nav-menu {
       ul {
-        max-width: 258px;
+        max-width: $header-items-width;
 
         li {
           a {
@@ -466,17 +444,17 @@ table {
       text-transform: uppercase;
       font-size: 22px;
       font-weight: 500;
-      max-width: 258px;
+      max-width: $header-items-width;
       width: 100%;
     }
 
     .logo-admin {
-      font-size: 23px;
+      font-size: 22px;
+      font-weight: 200;
       margin-left: 20px;
 
       .avatar {
         opacity: .8;
-        background-color: #855c6c;
         border-radius: 50%;
         width: 34px;
         height: 34px;
@@ -516,7 +494,7 @@ table {
     .socials {
       display: flex;
       justify-content: flex-end;
-      max-width: 258px;
+      max-width: $header-items-width;
       width: 100%;
 
       a {

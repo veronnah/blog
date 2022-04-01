@@ -5,7 +5,9 @@
   <div class="card-content">
     <small>{{post.date | date: 'dd.MM.yyyy'}}</small>
     <h2>{{post.title}}</h2>
-    <quill-view-html class="quill-text-preview" [content]="post.text.substring(0, 200)"></quill-view-html>
+    <div class="post-text">
+      <quill-view-html class="quill-text-preview" [content]="post.text.substring(0, 200)"></quill-view-html>
+    </div>
     <small>Read more <img src="assets/img/arrow.svg" alt="read more"></small>
   </div>
 </div>
