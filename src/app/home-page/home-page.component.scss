@@ -1,4 +1,12 @@
-.posts{
-  margin: 0 auto;
-  max-width: 700px;
+.posts {
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+app-post {
+  max-width: 370px;
+  width: 100%;
 }

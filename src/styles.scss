@@ -1,13 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "variables";
 @import "~quill/dist/quill.core.css";
 @import "~quill/dist/quill.snow.css";
-
-
 
 * {
   box-sizing: border-box;
@@ -44,12 +41,29 @@ body {
 }
 
 .mat-h1, .mat-headline, .mat-typography h1,
-.mat-h3, .mat-subheading-2, .mat-typography h3 {
+.mat-h3, .mat-subheading-2, .mat-typography h3, .mat-typography h2 {
   margin: 0;
 }
 
-.ql-editor{
+quill-view-html {
+  &.quill-text-preview {
+    .ql-editor {
+      padding: 0;
+      min-height: unset !important;
+
+      p {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.ql-editor {
   min-height: 200px;
+
+  p {
+    word-break: break-all;
+  }
 }
 
 .mat-snack-bar-container {
@@ -163,18 +177,14 @@ img {
 }
 
 .card {
-  padding: 1rem;
-  border: #ccc 1px dotted;
-  margin: 0.7rem 0;
   border-radius: 6px;
   cursor: pointer;
   transition: .3s all;
-  background-color: #fff;
 
   &:hover {
-    -webkit-box-shadow: 3px 0px 19px -15px rgba(0, 0, 0, 0.71);
-    -moz-box-shadow: 3px 0px 19px -15px rgba(0, 0, 0, 0.71);
-    box-shadow: 3px 0px 19px -15px rgba(0, 0, 0, 0.71);
+    //-webkit-box-shadow: 3px 0 19px -15px rgba(0, 0, 0, 0.71);
+    //-moz-box-shadow: 3px 0 19px -15px rgba(0, 0, 0, 0.71);
+    //box-shadow: 3px 0 19px -15px rgba(0, 0, 0, 0.71);
   }
 
   &-header {
@@ -393,9 +403,9 @@ table {
     width: 100%;
     background-color: #fff;
     animation: smoothScroll .8s forwards;
-    -webkit-box-shadow: 0px 3px 4px -5px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 3px 4px -5px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 3px 4px -5px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0 3px 4px -5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0 3px 4px -5px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 3px 4px -5px rgba(0, 0, 0, 0.75);
   }
 
   .navbar {

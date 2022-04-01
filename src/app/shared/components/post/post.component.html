@@ -1,12 +1,11 @@
 <div [routerLink]="['/post', post.id]" class="card">
-  <div class="card-header">
-    <h2>{{post.title}}</h2>
-    <small>{{post.date | date: 'dd.MM.yyyy'}}</small>
-  </div>
-  <div class="post-image" *ngIf="post.photo">
+  <div class="card-image" *ngIf="post.photo">
     <img [src]="post.photo" alt="Post image">
   </div>
-  <div>
-    <small>By {{post.author}}</small>
+  <div class="card-content">
+    <small>{{post.date | date: 'dd.MM.yyyy'}}</small>
+    <h2>{{post.title}}</h2>
+    <quill-view-html class="quill-text-preview" [content]="post.text.substring(0, 200)"></quill-view-html>
+    <small>Read more <img src="assets/img/arrow.svg" alt="read more"></small>
   </div>
 </div>

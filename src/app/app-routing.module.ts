@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {MainLayoutComponent} from "./shared/components/main-layout/main-layout.component";
 import {HomePageComponent} from "./home-page/home-page.component";
 import {PostPageComponent} from "./post-page/post-page.component";
 import {AboutPageComponent} from "./about-page/about-page.component";
 import {NotfoundPageComponent} from "./notfound-page/notfound-page.component";
+import {ContactPageComponent} from "./contact-page/contact-page.component";
 
 const routes: Routes = [
   {
@@ -12,13 +13,16 @@ const routes: Routes = [
       {path: '', redirectTo: '/', pathMatch: 'full'},
       {path: '', component: HomePageComponent},
       {path: 'about', component: AboutPageComponent},
+      {path: 'contact', component: ContactPageComponent},
       {path: 'post/:id', component: PostPageComponent},
-      {path: '**', component: NotfoundPageComponent},
     ]
   },
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(x => x.AdminModule)
+  },
+  {
+    path: '**', component: NotfoundPageComponent,
   }
 ];
 
@@ -28,4 +32,5 @@ const routes: Routes = [
   })],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

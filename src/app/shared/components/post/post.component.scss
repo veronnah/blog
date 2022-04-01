@@ -1,10 +1,57 @@
-.post-image {
-  max-width: 200px;
-  height: 150px;
-  width: 100%;
+.card {
+  transition: .4s;
 
-  img {
-    object-fit: cover;
-    height: 100%;
+  &:hover {
+    .card-content {
+      border: 1px solid #B3B3B3;
+    }
+
+    small {
+      img {
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  .card-image {
+    width: 100%;
+    max-width: 418px;
+    height: 418px;
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      border-radius: 6px 6px 0 0;
+    }
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 40px;
+    border-radius: 0 0 6px 6px;
+    border: 1px solid transparent;
+    transition: .4s;
+    gap: 8px;
+
+    small {
+      font-size: 12px;
+
+      img {
+        margin-left: 3px;
+        max-width: 10px;
+        transition: .4s;
+      }
+    }
+
+    h2 {
+      font-size: 18px;
+    }
+
+    p {
+      max-width: 100px;
+    }
   }
 }

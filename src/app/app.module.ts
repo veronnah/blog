@@ -12,6 +12,9 @@ import {HomePageComponent} from './home-page/home-page.component';
 import {PostPageComponent} from './post-page/post-page.component';
 import {PostComponent} from './shared/components/post/post.component';
 import {NotifierComponent} from "./admin/shared/components/notifier/notifier.component";
+import {AboutPageComponent} from './about-page/about-page.component';
+import {ContactPageComponent} from './contact-page/contact-page.component';
+import {NotfoundPageComponent} from './notfound-page/notfound-page.component';
 
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {AuthInterceptor} from "./shared/auth.interceptor";
@@ -19,8 +22,6 @@ import {AuthInterceptor} from "./shared/auth.interceptor";
 import {registerLocaleData} from "@angular/common";
 import plLocale from "@angular/common/locales/pl";
 import {environment} from '../environments/environment';
-import { AboutPageComponent } from './about-page/about-page.component';
-import { NotfoundPageComponent } from './notfound-page/notfound-page.component';
 
 registerLocaleData(plLocale, 'pl');
 
@@ -40,6 +41,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
     NotifierComponent,
     AboutPageComponent,
     NotfoundPageComponent,
+    ContactPageComponent,
   ],
   imports: [
     BrowserModule,
