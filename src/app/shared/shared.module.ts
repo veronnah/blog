@@ -5,6 +5,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {SpinnerComponent} from './components/spinner/spinner.component';
+import {NgxPaginationModule} from "ngx-pagination";
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import {SpinnerComponent} from './components/spinner/spinner.component';
     MatProgressSpinnerModule,
     MatIconModule,
     MatSnackBarModule,
+    NgxPaginationModule,
   ],
   exports: [
     HttpClientModule,
@@ -21,6 +23,7 @@ import {SpinnerComponent} from './components/spinner/spinner.component';
     MatIconModule,
     MatSnackBarModule,
     SpinnerComponent,
+    NgxPaginationModule,
   ],
   declarations: [
     SpinnerComponent

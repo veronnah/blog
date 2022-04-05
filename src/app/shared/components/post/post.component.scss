@@ -14,6 +14,12 @@
   }
 
   &:hover {
+    .card-image {
+      img {
+        transform: scale(1.1);
+      }
+    }
+
     .card-content {
       border: 1px solid #B3B3B3;
     }
@@ -29,11 +35,13 @@
     width: 100%;
     max-width: 418px;
     height: 418px;
+    overflow: hidden;
 
     img {
       object-fit: cover;
       height: 100%;
       border-radius: 6px 6px 0 0;
+      transition: .4s;
     }
   }
 

@@ -44,3 +44,35 @@ app-post {
   }
 }
 
+pagination-controls {
+  transform: translateY(-10px);
+
+  .ngx-pagination {
+    li {
+      border-radius: 4px;
+      padding: 0.1875rem 0.625rem;
+      transition: .3s;
+
+      &.current {
+        background: #5e5e5e;
+
+        &:hover {
+          background: #5e5e5e;
+        }
+      }
+
+      &:hover {
+        background: #f0f0f0;
+      }
+    }
+
+    a {
+      padding: 0;
+
+      &:hover {
+        background-color: unset;
+      }
+    }
+  }
+}
+
