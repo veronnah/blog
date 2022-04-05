@@ -1,10 +1,10 @@
 @import "src/variables";
 
 .posts {
+  width: 100%;
   margin: 50px auto;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
 }
 
@@ -62,6 +62,7 @@ pagination-controls {
       }
 
       &:hover {
+        cursor: pointer;
         background: #f0f0f0;
       }
     }
