@@ -14,7 +14,7 @@
       [ngClass]="{'shown': isShown}"
     >
       <ul>
-        <li routerLinkActive="active">
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a routerLink="/">Blog</a>
         </li>
         <li routerLinkActive="active">

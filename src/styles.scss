@@ -410,6 +410,12 @@ table {
         max-width: $header-items-width;
 
         li {
+          &.active {
+            a {
+              opacity: 1;
+            }
+          }
+
           a {
             opacity: .7;
             color: #333333;
@@ -562,5 +568,3 @@ table {
     transform: translateY(0px);
   }
 }
-
-
