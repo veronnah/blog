@@ -1,8 +1,53 @@
 .post {
+  margin-top: 40px;
+
   .header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-content: center;
+    margin-bottom: 12px;
+
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-right {
+      .info {
+        display: flex;
+        flex-direction: column;
+
+        p {
+          text-align: right;
+          margin: 0;
+
+          &.author {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    button {
+      display: flex;
+
+      &.btn-arrow {
+        .arrow-back {
+          transition: .4s;
+        }
+
+        &:hover {
+          .arrow-back {
+            transform: translateX(-4px);
+          }
+        }
+      }
+    }
+
+    h1 {
+      margin-bottom: 0;
+      margin-left: 12px;
+    }
   }
 
   .post-image {

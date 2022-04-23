@@ -1,13 +1,18 @@
 <div *ngIf="post$ | async as post; else loading">
-  <div class="post">
+  <div class="post container">
     <div class="header">
-      <h1>{{post.title}}</h1>
-      <button routerLink="/" class="btn btn-link">Back to the main</button>
-    </div>
-
-    <div class="info">
-      <strong>By {{post.author}}</strong>
-      <small>{{post.date | date: 'medium':null:'pl'}}</small>
+      <div class="header-left">
+        <button routerLink="/" class="btn btn-link btn-arrow">
+          <mat-icon class="arrow-back">arrow_back</mat-icon>
+        </button>
+        <h1>{{post.title}}</h1>
+      </div>
+      <div class="header-right">
+        <div class="info">
+          <p>{{post.date | date: 'medium':null:'pl'}}</p>
+          <p class="author">By {{post.author}}</p>
+        </div>
+      </div>
     </div>
 
     <div>
@@ -16,7 +21,6 @@
       </div>
       <quill-view-html [content]="post.text"></quill-view-html>
     </div>
-
   </div>
 </div>
 <ng-template #loading>

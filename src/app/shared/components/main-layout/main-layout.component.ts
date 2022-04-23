@@ -20,11 +20,7 @@ export class MainLayoutComponent implements OnInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const offset = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if (offset > 80) {
-      this.isFixedNavbar = true;
-    } else {
-      this.isFixedNavbar = false;
-    }
+    this.isFixedNavbar = offset > 80;
   }
 
   public toggleMenu() {

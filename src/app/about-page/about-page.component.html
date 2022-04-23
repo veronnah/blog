@@ -1,9 +1,48 @@
-<div class="about-us d-flex center">
-  <div class="about-us-pic">
-    <img src="assets/img/about-us-pic.jpg" alt="about-us-pic">
+<div *ngIf="isLoaded; else loading">
+  <div class="container about-us d-flex center">
+    <div class="about-us-pic">
+      <img src="assets/img/about-us-pic.jpg" alt="about-us-pic">
+    </div>
+    <p>Your About page can and will be more comprehensive than a single mission statement, but to draw people in, you
+      need
+      to succinctly state your goal in the industry upfront. What is your business here to do? Why should your website
+      visitors care? This information will give the reader something to remember about your company long after they
+      leave
+      your website.</p>
   </div>
-  <p>Your About page can and will be more comprehensive than a single mission statement, but to draw people in, you need
-    to succinctly state your goal in the industry upfront. What is your business here to do? Why should your website
-    visitors care? This information will give the reader something to remember about your company long after they leave
-    your website.</p>
+  <div class="goals container">
+    <h2>We're all about one goal</h2>
+    <div class="big-text">
+      <div class="_first">
+        TO MAKE
+      </div>
+      <div class="_second">
+        PEOPLE
+      </div>
+      <div class="_third">
+        happy
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="container footer-content">
+      <div class="heading">Feel cozy in our blog</div>
+      <p>Follow us</p>
+      <div class="socials">
+        <a href="https://twitter.com/home" target="_blank">
+          <img src="assets/img/twitter-foot.svg" alt="twitter">
+        </a>
+        <a href="https://www.instagram.com/veronnah_/" target="_blank">
+          <img src="assets/img/instagram-foot.svg" alt="instagram">
+        </a>
+      </div>
+    </div>
+  </footer>
 </div>
+
+<ng-template #loading>
+  <div class="spinner d-flex center">
+    <app-spinner></app-spinner>
+  </div>
+</ng-template>
+

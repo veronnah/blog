@@ -8,9 +8,15 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 })
 export class AboutPageComponent implements OnInit {
 
-  constructor() { }
+  public isLoaded: boolean = false;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoaded = true;
+    }, 2000);
   }
 
 }
