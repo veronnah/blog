@@ -1,0 +1,68 @@
+::ng-deep {
+  .mat-form-field-flex {
+    max-height: 200px;
+    overflow: hidden;
+  }
+
+  .mat-form-field-subscript-wrapper {
+    padding-left: 8px !important;
+  }
+
+  .mat-form-field-appearance-outline {
+    &.mat-focused {
+      mat-label {
+        color: #333333;
+      }
+
+      .mat-form-field-outline-thick {
+        color: #8d725f;
+      }
+    }
+
+    &:hover {
+      .mat-form-field-outline-thick {
+        color: #b29482;
+      }
+    }
+  }
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  padding-bottom: 24em;
+  background-image: url("../../assets/img/contact-bg.png");
+  background-repeat: no-repeat;
+
+  h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: 200;
+    margin-bottom: 40px;
+    color: #333333;
+    margin-top: 8em;
+  }
+
+  form {
+    .row {
+      display: flex;
+      gap: 20px;
+
+      &.actions {
+        justify-content: flex-end;
+
+        .btn-send {
+          background-color: #8d725f;
+          color: #fff;
+        }
+      }
+
+      .field {
+        width: 100%;
+      }
+    }
+  }
+}

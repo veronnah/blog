@@ -1,3 +1,59 @@
-<div class="container">
-
+<div class="contact">
+  <h2>Have questions? Contact us!</h2>
+  <form class="form container" [formGroup]="contactForm">
+    <div class="row">
+      <mat-form-field class="field" appearance="outline">
+        <mat-label>Name</mat-label>
+        <input
+          matInput autocomplete="off"
+          required
+          formControlName="name"
+        >
+        <mat-error *ngIf="contactForm.get('name').errors?.['required']
+         && contactForm.get('name').touched">
+          Required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="field" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          required
+          formControlName="email"
+        >
+        <mat-error *ngIf="contactForm.get('email').errors?.['required']
+        && contactForm.get('email').touched">
+          Required
+        </mat-error>
+        <mat-error *ngIf="contactForm.get('email').errors?.['email']
+        && contactForm.get('email').touched">
+          Incorrect email format
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="field" appearance="outline">
+        <mat-label>Describe your problem</mat-label>
+        <textarea
+          matInput
+          placeholder="Your message here..."
+          required
+          formControlName="message"
+        ></textarea>
+        <mat-error *ngIf="contactForm.get('message').errors?.['required']
+         && contactForm.get('message').touched">
+          Required
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="row actions">
+      <button
+        type="submit"
+        class="btn btn-send"
+        [disabled]="contactForm.invalid || submitted"
+      >
+        Send
+      </button>
+    </div>
+  </form>
 </div>

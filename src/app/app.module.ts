@@ -22,6 +22,7 @@ import {AuthInterceptor} from "./shared/auth.interceptor";
 import {registerLocaleData} from "@angular/common";
 import plLocale from "@angular/common/locales/pl";
 import {environment} from '../environments/environment';
+import {ReactiveFormsModule} from "@angular/forms";
 
 registerLocaleData(plLocale, 'pl');
 
@@ -43,20 +44,21 @@ const INTERCEPTOR_PROVIDER: Provider = {
     NotfoundPageComponent,
     ContactPageComponent,
   ],
-  imports: [
-    BrowserModule,
-    NoopAnimationsModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    SharedModule,
-    MatButtonModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    }),
-  ],
+    imports: [
+        BrowserModule,
+        NoopAnimationsModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        SharedModule,
+        MatButtonModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: environment.production,
+            // Register the ServiceWorker as soon as the application is stable
+            // or after 30 seconds (whichever comes first).
+            registrationStrategy: 'registerWhenStable:30000'
+        }),
+        ReactiveFormsModule,
+    ],
   providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]
 })

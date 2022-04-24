@@ -6,6 +6,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {SpinnerComponent} from './components/spinner/spinner.component';
 import {NgxPaginationModule} from "ngx-pagination";
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import {NgxPaginationModule} from "ngx-pagination";
     QuillModule.forRoot(),
     MatProgressSpinnerModule,
     MatIconModule,
+    MatInputModule,
     MatSnackBarModule,
     NgxPaginationModule,
   ],
@@ -21,6 +23,7 @@ import {NgxPaginationModule} from "ngx-pagination";
     QuillModule,
     MatProgressSpinnerModule,
     MatIconModule,
+    MatInputModule,
     MatSnackBarModule,
     SpinnerComponent,
     NgxPaginationModule,
