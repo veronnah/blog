@@ -4,8 +4,6 @@ import {map, Observable} from "rxjs";
 import {Post} from "./interfaces";
 import {environment} from "../../environments/environment";
 
-// import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
-
 @Injectable({
   providedIn: "root"
 })

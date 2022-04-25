@@ -18,3 +18,9 @@ export interface Post {
   photo: any,
   date: Date,
 }
+
+export interface ContactMessage {
+  name: string,
+  email: string,
+  message: string,
+}

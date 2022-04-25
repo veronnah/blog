@@ -21,12 +21,16 @@ export class CreatePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.initForm();
+  }
+
+  public initForm() {
     this.form = new FormGroup({
       title: new FormControl(null, Validators.required),
       text: new FormControl(null, Validators.required),
       photo: new FormControl('', Validators.required),
       author: new FormControl(null, Validators.required),
-    })
+    });
   }
 
   public addPhoto(event: any) {
@@ -65,7 +69,6 @@ export class CreatePageComponent implements OnInit {
       photo: this.form.value.photo,
       date: new Date(),
     }
-    console.log(post)
 
     this.postsService.create(post).subscribe(() => {
       this.form.reset();

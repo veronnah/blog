@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup, FormGroupDirective, Validators} from "@angular/forms";
+import {ContactService} from "../shared/contact.service";
+import {ContactMessage} from "../shared/interfaces";
+import {NotifierService} from "../admin/shared/services/notifier.service";
 
 @Component({
   selector: 'app-contact-page',
@@ -11,7 +14,8 @@ export class ContactPageComponent implements OnInit {
   public contactForm: FormGroup;
   public submitted: boolean = false;
 
-  constructor() {
+  constructor(private contactService: ContactService,
+              private notifierService: NotifierService) {
   }
 
   ngOnInit(): void {
@@ -31,6 +35,31 @@ export class ContactPageComponent implements OnInit {
         Validators.required
       ])
     })
+  }
+
+  public submit(formDirective: FormGroupDirective) {
+    if (this.contactForm.invalid) {
+      return;
+    }
+
+    const formValue: ContactMessage = this.contactForm.getRawValue();
+    this.submitted = true;
+
+    this.contactService.sendMessage(formValue)
+      .subscribe({
+        next: value => {
+          this.contactForm.reset();
+          formDirective.resetForm();
+
+          this.submitted = false;
+          this.notifierService.showSnackbar('Message has been sent', 'success');
+        },
+        error: err => {
+          this.submitted = false;
+          this.notifierService.showSnackbar('Something went wrong', 'error');
+        },
+      })
+
   }
 
 }

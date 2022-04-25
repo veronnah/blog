@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../shared/interfaces";
 import {AuthService} from "../shared/services/auth.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
+import {NotifierService} from "../shared/services/notifier.service";
 
 @Component({
   selector: 'app-login-page',
@@ -19,6 +20,7 @@ export class LoginPageComponent implements OnInit {
     public authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
+    private notifierService: NotifierService,
   ) {
   }
 
@@ -53,18 +55,23 @@ export class LoginPageComponent implements OnInit {
       return;
     }
     this.submitted = true;
+
     const user: User = {
       email: this.form.value.email,
       password: this.form.value.password,
     };
 
-    this.authService.login(user).subscribe(() => {
-      this.form.reset();
-      this.router.navigate(['/admin', 'dashboard']);
-      this.submitted = false;
-    }, () => {
-      this.submitted = false;
-    });
+    this.authService.login(user).subscribe({
+      next: () => {
+        this.form.reset();
+        this.router.navigate(['/admin', 'dashboard']).then();
+        this.submitted = false;
+      },
+      error: () => {
+        this.submitted = false;
+        this.notifierService.showSnackbar('Something went wrong', 'error');
+      }
+    })
   }
 
 }

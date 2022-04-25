@@ -1,6 +1,9 @@
 <div class="contact">
   <h2>Have questions? Contact us!</h2>
-  <form class="form container" [formGroup]="contactForm">
+  <form class="form container"
+        [formGroup]="contactForm"
+        (ngSubmit)="submit(formDirective)"
+        #formDirective="ngForm">
     <div class="row">
       <mat-form-field class="field" appearance="outline">
         <mat-label>Name</mat-label>
