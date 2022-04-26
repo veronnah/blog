@@ -18,7 +18,12 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let post of displayedPosts; let idx = index">
+    <tr *ngFor="let post of displayedPosts | paginate:{
+    itemsPerPage: tableSize,
+    currentPage: page,
+    totalItems: count
+    }; let idx = index"
+    >
       <td>{{idx + 1}}</td>
       <td>{{post.author}}</td>
       <td>{{post.title}}</td>
@@ -40,6 +45,12 @@
     </tr>
     </tbody>
   </table>
+  <pagination-controls
+    previousLabel=""
+    nextLabel=""
+    [maxSize]="5"
+    (pageChange)="onPageChange($event)"
+  ></pagination-controls>
 </div>
 
 <div

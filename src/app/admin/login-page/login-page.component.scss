@@ -3,5 +3,8 @@
 form {
   max-width: 600px;
   margin: 150px auto;
-  background-color: #fff;
+
+  .actions{
+    justify-content: flex-end;
+  }
 }

@@ -61,10 +61,12 @@
       </small>
     </div>
   </div>
-  <button
-    type="submit"
-    class="btn btn-primary"
-    [disabled]="form.invalid || submitted"
-  >Login
-  </button>
+  <div class="d-flex actions">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="form.invalid || submitted"
+    >Login
+    </button>
+  </div>
 </form>

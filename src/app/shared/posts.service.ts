@@ -9,7 +9,8 @@ import {environment} from "../../environments/environment";
 })
 
 export class PostsService {
-  constructor(private http: HttpClient,
+  constructor(
+    private http: HttpClient,
   ) {
   }
 

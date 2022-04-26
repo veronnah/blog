@@ -42,5 +42,4 @@ export class HomePageComponent implements OnInit {
     this.page = 1;
     this.getPosts();
   }
-
 }

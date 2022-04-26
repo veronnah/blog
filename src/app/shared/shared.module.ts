@@ -7,6 +7,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {SpinnerComponent} from './components/spinner/spinner.component';
 import {NgxPaginationModule} from "ngx-pagination";
 import {MatInputModule} from '@angular/material/input';
+import {InfiniteScrollModule} from "ngx-infinite-scroll";
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import {MatInputModule} from '@angular/material/input';
     MatInputModule,
     MatSnackBarModule,
     NgxPaginationModule,
+    InfiniteScrollModule,
   ],
   exports: [
     HttpClientModule,
@@ -27,6 +29,7 @@ import {MatInputModule} from '@angular/material/input';
     MatSnackBarModule,
     SpinnerComponent,
     NgxPaginationModule,
+    InfiniteScrollModule,
   ],
   declarations: [
     SpinnerComponent

@@ -25,6 +25,11 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   public nothingFoundMessage: string;
   public noPostsMessage: string;
 
+  public page: number = 1;
+  public count: number = 0;
+  public tableSize: number = 6;
+  public tableSizes: any = [6, 12, 18, 24];
+
   constructor(private postsService: PostsService,
               private notifierService: NotifierService,
   ) {
@@ -51,9 +56,19 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
     });
   }
 
+  public onPageChange(event: any) {
+    this.page = event;
+    this.getPosts();
+  }
+
+  public onPageSizeChange(event: any) {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.getPosts();
+  }
+
   private checkPosts() {
     if (!this.displayedPosts || !this.displayedPosts.length) {
-
       this.noPostsMessage = 'No posts yet';
     }
   }

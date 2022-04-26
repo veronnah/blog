@@ -1,3 +1,30 @@
+:host ::ng-deep {
+  pagination-controls {
+    .ngx-pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 34px;
+
+      li {
+        border-radius: 4px;
+        transition: .3s;
+
+        &.current {
+          background: #000000;
+
+          &:hover {
+            background: #5e5e5e;
+          }
+        }
+      }
+
+      a {
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
 .btn-edit {
   margin-right: 10px;
 }
@@ -5,3 +32,5 @@
 .wrapper {
   margin-top: 40px;
 }
+
+
