@@ -1,5 +1,5 @@
 <form class="card" [formGroup]="form" (ngSubmit)="login()">
-  <h2>Login to admin panel</h2>
+  <h2 class="heading">Login to admin panel</h2>
 
   <div class="alert alert-danger" *ngIf="authService.error$ | async as error">
     {{error}}
@@ -7,60 +7,39 @@
   <div class="alert alert-info" *ngIf="message">
     {{message}}
   </div>
-  <div
-    [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}"
-    class="form-control"
-  >
-    <label for="email">Email</label>
+  <mat-form-field class="field" appearance="outline">
+    <mat-label>Email</mat-label>
     <input
-      id="email"
-      type="email"
-      name="email"
+      matInput autocomplete="off"
+      required
       formControlName="email"
     >
-    <div
-      *ngIf="form.get('email').touched && form.get('email').invalid"
-      class="validation"
-    >
-      <small
-        *ngIf="form.get('email').errors?.['required'] && form.get('email').touched"
-      >
-        Required
-      </small>
-      <small
-        *ngIf="form.get('email').errors?.['email'] && form.get('email').touched"
-      >
-        Incorrect email format
-      </small>
-    </div>
-  </div>
-  <div
-    [ngClass]="{invalid: form.get('password').touched && form.get('password').invalid}"
-    class="form-control">
-    <label for="password">Password</label>
+    <mat-error *ngIf="form.get('email').errors?.['required']
+         && form.get('email').touched">
+      Required
+    </mat-error>
+    <mat-error *ngIf="form.get('email').errors?.['email']
+         && form.get('email').touched">
+      Incorrect email format
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="field" appearance="outline">
+    <mat-label>Password</mat-label>
     <input
-      id="password"
-      name="password"
-      type="password"
+      matInput
+      required
       autocomplete="new-password"
       formControlName="password"
     >
-    <div
-      *ngIf="form.get('password').touched && form.get('password').invalid"
-      class="validation"
-    >
-      <small
-        *ngIf="form.get('password').errors?.['required'] && form.get('password').touched"
-      >
-        Required
-      </small>
-      <small
-        *ngIf="form.get('password').errors?.['minlength'] && form.get('password').touched"
-      >
-        Password should contain at least {{form.get('password').errors?.['minlength'].requiredLength}} symbols
-      </small>
-    </div>
-  </div>
+    <mat-error *ngIf="form.get('password').errors?.['required']
+         && form.get('password').touched">
+      Required
+    </mat-error>
+    <mat-error *ngIf="form.get('password').errors?.['minlength']
+         && form.get('password').touched">
+      Password should contain at least {{form.get('password').errors?.['minlength'].requiredLength}} symbols
+    </mat-error>
+  </mat-form-field>
   <div class="d-flex actions">
     <button
       type="submit"
