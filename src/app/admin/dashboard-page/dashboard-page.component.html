@@ -20,8 +20,10 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let post of displayedPosts let idx = index"
-        #tableRow
+    <tr
+      [routerLink]="['/admin', 'post', post.id, 'edit']"
+      *ngFor="let post of displayedPosts let idx = index"
+      #tableRow
     >
       <td>{{idx + 1}}</td>
       <td>{{post.author}}</td>
@@ -29,13 +31,7 @@
       <td>{{post.date | date: 'medium':null:'pl'}}</td>
       <td>
         <button
-          class="btn btn-edit"
-          [routerLink]="['/admin', 'post', post.id, 'edit']"
-        >
-          Edit
-        </button>
-        <button
-          class="btn btn-delete"
+          class="btn btn-delete btn-danger"
           (click)="remove(post.id, idx)"
           [disabled]="submitted"
         >Delete

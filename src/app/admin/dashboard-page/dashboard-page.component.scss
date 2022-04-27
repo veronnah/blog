@@ -1,3 +1,5 @@
+@import "src/variables";
+
 ::ng-deep {
   .mat-form-field-appearance-outline {
     .mat-form-field-infix {
@@ -37,6 +39,11 @@ table {
 
   tr {
     transition: .4s;
+    cursor: pointer;
+
+    &:hover{
+      background-color: $light-clr;
+    }
 
     &.deleted {
       background-color: #ffe8e8;
@@ -45,19 +52,12 @@ table {
 }
 
 .btn {
-  border: 2px solid #000;
-  padding: 0.3rem 1rem;
+  margin-right: 0;
 
-  &.btn-edit {
-    margin-right: 10px;
-    background-color: transparent;
-    color: #000;
-  }
-
-  &.btn-delete {
-    margin-right: 10px;
-    background-color: #000;
-    color: #fff;
+  .disabled {
+    background-color: unset;
+    opacity: .8;
+    color: #000000;
   }
 }
 
