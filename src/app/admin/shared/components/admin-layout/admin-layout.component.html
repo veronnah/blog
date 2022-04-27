@@ -6,12 +6,15 @@
         <div class="avatar d-flex center">
           <mat-icon class="avatar-icon">person</mat-icon>
         </div>
-        <span>Articles.net <span class="admin-text">Admin</span></span>
+        <span [routerLink]="['/admin', 'dashboard']">
+          Articles.net
+          <span [routerLink]="['/admin', 'dashboard']" class="admin-text">Admin</span>
+        </span>
       </div>
     </div>
     <ul class="nav-right" *ngIf="auth.isAuthenticated()">
       <li routerLinkActive="active">
-        <a [routerLink]="['/admin', 'dashboard']">Main</a>
+        <a [routerLink]="['/admin', 'dashboard']">Dashboard</a>
       </li>
       <li routerLinkActive="active">
         <a [routerLink]="['/admin', 'create']">Create new post</a>

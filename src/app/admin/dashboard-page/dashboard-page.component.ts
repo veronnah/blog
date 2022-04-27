@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {PostsService} from "../../shared/posts.service";
 import {Post} from "../../shared/interfaces";
 import {Subscription} from "rxjs";
@@ -25,10 +25,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   public nothingFoundMessage: string;
   public noPostsMessage: string;
 
-  public page: number = 1;
-  public count: number = 0;
-  public tableSize: number = 6;
-  public tableSizes: any = [6, 12, 18, 24];
+  @ViewChildren('tableRow') tableRows: QueryList<any>;
 
   constructor(private postsService: PostsService,
               private notifierService: NotifierService,
@@ -56,30 +53,25 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  public onPageChange(event: any) {
-    this.page = event;
-    this.getPosts();
-  }
-
-  public onPageSizeChange(event: any) {
-    this.tableSize = event.target.value;
-    this.page = 1;
-    this.getPosts();
-  }
-
   private checkPosts() {
     if (!this.displayedPosts || !this.displayedPosts.length) {
       this.noPostsMessage = 'No posts yet';
     }
   }
 
-  public remove(id: string) {
+  public remove(id: string, index: number) {
     this.submitted = true;
+
+    const clickedRow = this.tableRows.toArray()[index].nativeElement;
+    clickedRow.classList.add('deleted');
 
     this.postsService.remove(id).subscribe({
         next: () => {
-          this.displayedPosts = this.displayedPosts?.filter(post => post.id !== id);
-          this.submitted = false;
+          setTimeout(() => {
+            this.displayedPosts = this.displayedPosts?.filter(post => post.id !== id);
+            this.submitted = false;
+          }, 1000);
+
           this.checkPosts();
         },
         error: () => this.submitted = false,
@@ -96,7 +88,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
       this.nothingFoundMessage = '';
       return;
     }
-    this.displayedPosts = this.posts?.filter(post => post.title.toLowerCase().includes(value));
+    this.displayedPosts = this.posts?.filter(post => post.title.toLowerCase().includes(value) || post.title.includes(value));
 
     if (this.displayedPosts?.length === 0) {
       this.nothingFoundMessage = 'No posts found. Try to update search query';

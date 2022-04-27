@@ -1,32 +1,64 @@
-:host ::ng-deep {
-  pagination-controls {
-    .ngx-pagination {
-      display: flex;
-      justify-content: center;
-      margin-top: 34px;
+::ng-deep {
+  .mat-form-field-appearance-outline {
+    .mat-form-field-infix {
+      padding: 20px 0 1em 0;
+      border: none;
+    }
 
-      li {
-        border-radius: 4px;
-        transition: .3s;
-
-        &.current {
-          background: #000000;
-
-          &:hover {
-            background: #5e5e5e;
-          }
-        }
+    &.mat-focused {
+      .mat-form-field-outline-thick {
+        color: #1c1c1c;
       }
+    }
 
-      a {
-        border-radius: 4px;
+    &:hover {
+      .mat-form-field-outline-thick {
+        color: #6c6c6c;
       }
+    }
+
+    input {
+      text-align: center;
+      font-size: 18px;
     }
   }
 }
 
-.btn-edit {
-  margin-right: 10px;
+.search-box {
+  width: 100%;
+}
+
+table {
+  margin-bottom: 40px;
+
+  th, td {
+    font-size: 18px;
+  }
+
+  tr {
+    transition: .4s;
+
+    &.deleted {
+      background-color: #ffe8e8;
+    }
+  }
+}
+
+.btn {
+  border: 2px solid #000;
+  padding: 0.3rem 1rem;
+
+  &.btn-edit {
+    margin-right: 10px;
+    background-color: transparent;
+    color: #000;
+  }
+
+  &.btn-delete {
+    margin-right: 10px;
+    background-color: #000;
+    color: #fff;
+  }
 }
 
 .wrapper {

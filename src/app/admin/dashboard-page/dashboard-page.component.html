@@ -1,12 +1,14 @@
 <div class="wrapper" *ngIf="!errorMessage && !noPostsMessage && !loading">
-  <div class="form-control">
+  <mat-form-field class="search-box" appearance="outline">
     <input
+      matInput
+      autocomplete="off"
       #searchInput
-      type="text"
       placeholder="Search in posts..."
       (input)="search(searchInput.value)"
     >
-  </div>
+  </mat-form-field>
+
   <table *ngIf="displayedPosts?.length">
     <thead>
     <tr>
@@ -18,11 +20,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let post of displayedPosts | paginate:{
-    itemsPerPage: tableSize,
-    currentPage: page,
-    totalItems: count
-    }; let idx = index"
+    <tr *ngFor="let post of displayedPosts let idx = index"
+        #tableRow
     >
       <td>{{idx + 1}}</td>
       <td>{{post.author}}</td>
@@ -30,14 +29,14 @@
       <td>{{post.date | date: 'medium':null:'pl'}}</td>
       <td>
         <button
-          class="btn btn-edit btn-success"
+          class="btn btn-edit"
           [routerLink]="['/admin', 'post', post.id, 'edit']"
         >
           Edit
         </button>
         <button
-          class="btn btn-danger"
-          (click)="remove(post.id)"
+          class="btn btn-delete"
+          (click)="remove(post.id, idx)"
           [disabled]="submitted"
         >Delete
         </button>
@@ -45,12 +44,6 @@
     </tr>
     </tbody>
   </table>
-  <pagination-controls
-    previousLabel=""
-    nextLabel=""
-    [maxSize]="5"
-    (pageChange)="onPageChange($event)"
-  ></pagination-controls>
 </div>
 
 <div
