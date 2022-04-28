@@ -30,6 +30,7 @@ export class CreatePageComponent implements OnInit {
       text: new FormControl(null, Validators.required),
       photo: new FormControl('', Validators.required),
       author: new FormControl(null, Validators.required),
+      subject: new FormControl(null),
     });
   }
 
@@ -57,7 +58,11 @@ export class CreatePageComponent implements OnInit {
     this.addPhoto(event);
   }
 
-  submit() {
+  public delPhoto(){
+    this.form.get('photo')?.patchValue(null);
+  }
+
+  public submit() {
     if (this.form.invalid) {
       return;
     }
@@ -67,6 +72,7 @@ export class CreatePageComponent implements OnInit {
       author: this.form.value.author,
       text: this.form.value.text,
       photo: this.form.value.photo,
+      subject: this.form.value.subject,
       date: new Date(),
     }
 

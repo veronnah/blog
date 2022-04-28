@@ -59,7 +59,8 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
     }
   }
 
-  public remove(id: string, index: number) {
+  public remove(id: string, index: number, event: Event) {
+    event.stopPropagation();
     this.submitted = true;
 
     const clickedRow = this.tableRows.toArray()[index].nativeElement;

@@ -32,7 +32,7 @@
       <td>
         <button
           class="btn btn-delete btn-danger"
-          (click)="remove(post.id, idx)"
+          (click)="remove(post.id, idx, $event)"
           [disabled]="submitted"
         >Delete
         </button>

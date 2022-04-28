@@ -46,6 +46,12 @@ body {
   margin: 0;
 }
 
+.ql-toolbar, .ql-container {
+  &.ql-snow {
+    border: 1px solid #ccc;
+  }
+}
+
 quill-view-html {
   &.quill-text-preview {
     .ql-editor {
