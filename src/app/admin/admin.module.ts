@@ -37,7 +37,7 @@ import { AlertComponent } from './shared/components/alert/alert.component';
           {path: 'login', component: LoginPageComponent},
           {path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard]},
           {path: 'create', component: CreatePageComponent, canActivate: [AuthGuard]},
-          {path: 'post/:id/edit', component: EditPageComponent, canActivate: [AuthGuard]},
+          {path: 'post/:id/edit', component: CreatePageComponent, canActivate: [AuthGuard]},
         ]
       }
     ])

@@ -1,118 +1,142 @@
-<h1 class="text-center heading">Create new post</h1>
-<form [formGroup]="form" (ngSubmit)="submit()">
-  <div class="controls-wrapper">
-    <div class="controls">
-      <div class="left-controls d-flex">
-        <mat-form-field class="field" appearance="outline">
-          <mat-label>Title</mat-label>
-          <input
-            matInput autocomplete="off"
-            required
-            formControlName="title"
-          >
-          <mat-error *ngIf="form.get('title').errors?.['required']
+<ng-container *ngIf="!loading">
+  <h1
+    *ngIf="isNew else edit"
+    class="text-center heading"
+  >Create new post</h1>
+  <ng-template #edit>
+    <h1 class="text-center heading"
+    >Edit post</h1>
+  </ng-template>
+  <form #formDirective="ngForm" [formGroup]="form" (ngSubmit)="submit(formDirective)">
+    <div class="controls-wrapper">
+      <div class="controls">
+        <div class="left-controls d-flex">
+          <mat-form-field class="field" appearance="outline">
+            <mat-label>Title</mat-label>
+            <input
+              matInput autocomplete="off"
+              required
+              formControlName="title"
+            >
+            <mat-error *ngIf="form.get('title').errors?.['required']
          && form.get('title').touched">
-            Required
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="field" appearance="outline">
-          <mat-label>Author</mat-label>
-          <input
-            matInput autocomplete="off"
-            required
-            formControlName="author"
-          >
-          <mat-error *ngIf="form.get('author').errors?.['required']
-         && form.get('author').touched">
-            Required
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="field" appearance="outline">
-          <mat-label>Subject (optional)</mat-label>
-          <input
-            matInput autocomplete="off"
-            formControlName="subject"
-          >
-          <mat-error *ngIf="form.get('subject').errors?.['required']
-         && form.get('subject').touched">
-            Required
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <div class="right-controls">
-        <div class="photo-uploaded" *ngIf="form.get('photo').value">
-          <div class="overlay"></div>
-          <img
-            [src]="form.get('photo').value"
-            alt="Post photo"
-          >
-          <button
-            class="delete-btn"
-            (click)="delPhoto()"
-          >
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
-        <div
-          *ngIf="!form.get('photo').value"
-          [ngClass]="{invalid: form.get('photo').touched && form.get('photo').invalid}"
-          class="form-control upload-area"
-          (dragover)="onDragOver($event)"
-          (drop)="onDragSuccess($event)"
-          (click)="postImage.click()"
-        >
-          <div>
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M28 25.3333V6.66667C28 5.2 26.8 4 25.3333 4H6.66667C5.2 4 4 5.2 4 6.66667V25.3333C4 26.8 5.2 28 6.66667 28H25.3333C26.8 28 28 26.8 28 25.3333ZM11.3333 18L14.6667 22.0133L19.3333 16L25.3333 24H6.66667L11.3333 18Z"
-                fill="#BDC3C7"
-              />
-            </svg>
-            <h3 class="upload-title">
-              Drop your image here, or
-              <a>browse</a>
-            </h3>
-          </div>
-
-          <p class="upload-file-type">Supports: JPG, PNG, SVG</p>
-          <input
-            #postImage
-            id="photo"
-            type="file"
-            accept="image/jpeg,image/png,image/gif"
-            name="photo"
-            class="file-input"
-            (change)="addPhoto($event)"
-          >
-          <div
-            *ngIf="form.get('photo').touched && form.get('photo').invalid"
-            class="validation"
-          >
-            <small
-              *ngIf="form.get('photo').errors?.['required'] && form.get('photo').touched"
-            >
               Required
-            </small>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="field" appearance="outline">
+            <mat-label>Author</mat-label>
+            <input
+              matInput autocomplete="off"
+              required
+              formControlName="author"
+              [readonly]="isEdit"
+            >
+            <mat-error *ngIf="form.get('author').errors?.['required']
+         && form.get('author').touched">
+              Required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="field" appearance="outline">
+            <mat-label>Subject (optional)</mat-label>
+            <input
+              matInput autocomplete="off"
+              formControlName="subject"
+            >
+            <mat-error *ngIf="form.get('subject').errors?.['required']
+         && form.get('subject').touched">
+              Required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="right-controls">
+          <div class="photo-uploaded" *ngIf="form.get('photo').value">
+            <div class="overlay"></div>
+            <img
+              [src]="form.get('photo').value"
+              alt="Post photo"
+            >
+            <button
+              class="delete-btn"
+              (click)="delPhoto()"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+          <div
+            *ngIf="!form.get('photo').value"
+            [ngClass]="{invalid: form.get('photo').touched && form.get('photo').invalid}"
+            class="form-control upload-area"
+            (dragover)="onDragOver($event)"
+            (drop)="onDragSuccess($event)"
+            (click)="postImage.click()"
+          >
+            <div>
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M28 25.3333V6.66667C28 5.2 26.8 4 25.3333 4H6.66667C5.2 4 4 5.2 4 6.66667V25.3333C4 26.8 5.2 28 6.66667 28H25.3333C26.8 28 28 26.8 28 25.3333ZM11.3333 18L14.6667 22.0133L19.3333 16L25.3333 24H6.66667L11.3333 18Z"
+                  fill="#BDC3C7"
+                />
+              </svg>
+              <h3 class="upload-title">
+                Drop your image here, or
+                <a>browse</a>
+              </h3>
+            </div>
+
+            <p class="upload-file-type">Supports: JPG, PNG, SVG</p>
+            <input
+              #postImage
+              id="photo"
+              type="file"
+              accept="image/jpeg,image/png,image/gif"
+              name="photo"
+              class="file-input"
+              (change)="addPhoto($event)"
+            >
+            <div
+              *ngIf="form.get('photo').touched && form.get('photo').invalid"
+              class="validation"
+            >
+              <small
+                *ngIf="form.get('photo').errors?.['required'] && form.get('photo').touched"
+              >
+                Required
+              </small>
+            </div>
           </div>
         </div>
       </div>
+      <div class="form-control">
+        <quill-editor formControlName="text"></quill-editor>
+      </div>
     </div>
-    <div class="form-control">
-      <quill-editor formControlName="text"></quill-editor>
+    <div class="actions">
+      <button
+        *ngIf="isNew"
+        type="submit"
+        class="btn btn-block btn-success"
+        [disabled]="form.invalid || submitted"
+      >Create post
+      </button>
+      <button
+        *ngIf="isEdit"
+        type="submit"
+        class="btn btn-block btn-success"
+        [disabled]="form.invalid || submitted"
+      >Save
+      </button>
     </div>
-  </div>
-  <div class="actions">
-    <button
-      type="submit"
-      class="btn btn-block btn-success"
-      [disabled]="form.invalid"
-    >Create post
-    </button>
-  </div>
-</form>
+  </form>
+</ng-container>
+
+<div
+  class="spinner d-flex center"
+  *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
