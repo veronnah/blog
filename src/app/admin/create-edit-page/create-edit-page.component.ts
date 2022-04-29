@@ -8,11 +8,11 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Subscription, switchMap} from 'rxjs';
 
 @Component({
-  selector: 'app-create-page',
-  templateUrl: './create-page.component.html',
-  styleUrls: ['./create-page.component.scss']
+  selector: 'app-create-edit-page',
+  templateUrl: './create-edit-page.component.html',
+  styleUrls: ['./create-edit-page.component.scss']
 })
-export class CreatePageComponent implements OnInit, OnDestroy {
+export class CreateEditPageComponent implements OnInit, OnDestroy {
 
   public form: FormGroup;
   public submitted: boolean = false;
