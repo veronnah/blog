@@ -67,3 +67,47 @@ pagination-controls {
   }
 }
 
+@media screen and (max-width: 1000px) {
+  .posts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+  app-post:nth-child(4n+2),
+  app-post:nth-child(2n+2),
+  app-post:nth-child(2n+1),
+  app-post:nth-child(5n+1) {
+    .card {
+      transform: none;
+    }
+  }
+  app-post:nth-child(odd) {
+    &:not(:first-child) {
+      .card {
+        transform: translateY(-140px);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 834px) {
+  app-post {
+    max-width: 560px;
+
+    .card {
+      .card-image {
+        max-width: 100% !important;
+      }
+    }
+  }
+
+  app-post:nth-child(odd) {
+    &:not(:first-child) {
+      .card {
+        transform: none;
+      }
+    }
+  }
+}
+
