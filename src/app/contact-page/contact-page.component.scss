@@ -32,7 +32,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 40px;
   padding-bottom: 24em;
   background-image: url("../../assets/img/contact-bg.png");
   background-repeat: no-repeat;
@@ -62,6 +61,21 @@
 
       .field {
         width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .contact {
+    margin-top: 0;
+    h2 {
+      font-size: 20px;
+    }
+
+    form {
+      .row {
+        display: block;
       }
     }
   }
