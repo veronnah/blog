@@ -473,6 +473,7 @@ table {
       font-weight: 500;
       max-width: $header-items-width;
       width: 100%;
+      margin-bottom: 3px;
     }
 
     .logo-admin {
@@ -545,6 +546,11 @@ table {
         align-items: flex-start;
         padding-top: 20px;
         height: 183px;
+
+        .logo-user{
+          margin-top: 3px;
+          margin-bottom: unset;
+        }
 
         .menu-btn {
           margin-top: -8px;

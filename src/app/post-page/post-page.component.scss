@@ -1,7 +1,7 @@
 .post {
   margin-top: 40px;
 
-  .header {
+  .post-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -69,6 +69,22 @@
   .info {
     strong {
       margin-right: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .post {
+    .post-header {
+      flex-direction: column;
+
+      .header-right {
+        .info {
+          p {
+            text-align: center;
+          }
+        }
+      }
     }
   }
 }
