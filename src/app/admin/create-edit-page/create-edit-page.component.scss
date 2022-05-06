@@ -147,4 +147,38 @@ form {
   }
 }
 
+@media screen and(max-width: 1000px) {
+  form {
+    margin: 30px 0;
+
+    .controls-wrapper {
+      .controls {
+        .right-controls {
+          img {
+            transform: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 600px) {
+  form {
+    padding: 18px;
+
+    .controls-wrapper {
+      .controls {
+        flex-direction: column;
+      }
+    }
+
+    .actions {
+      .btn-block {
+        width: 100%;
+      }
+    }
+  }
+}
+
 

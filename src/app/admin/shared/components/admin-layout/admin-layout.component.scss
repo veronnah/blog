@@ -5,11 +5,20 @@
   }
 
   .navbar {
-    display: flex;
+    ul {
+      &.nav-menu {
+        &.shown {
+          flex-direction: column;
+          padding: 20px 30px;
+          justify-content: center;
+        }
 
-    .nav-right {
-      display: flex;
-      gap: 10px;
+        background-color: #000;
+      }
+    }
+
+    .menu-btn {
+      margin-bottom: 0;
     }
   }
 }
@@ -20,5 +29,16 @@
       margin-left: 20px;
       cursor: pointer;
     }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    .admin-text {
+      margin-left: 8px;
+    }
+  }
+  .logo-text {
+    display: none;
   }
 }

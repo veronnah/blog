@@ -13,6 +13,7 @@ import {AuthGuard} from "./shared/services/auth.guard";
 
 import {SearchPipe} from "./shared/pipes/search.pipe";
 import {AlertComponent} from './shared/components/alert/alert.component';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {AlertComponent} from './shared/components/alert/alert.component';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    MatButtonModule,
     RouterModule.forChild([
       {
         path: '', component: AdminLayoutComponent, children: [
@@ -38,7 +40,8 @@ import {AlertComponent} from './shared/components/alert/alert.component';
           {path: 'post/:id/edit', component: CreateEditPageComponent, canActivate: [AuthGuard]},
         ]
       }
-    ])
+    ]),
+    MatButtonModule
   ],
   exports: [RouterModule],
   providers: [AuthGuard]

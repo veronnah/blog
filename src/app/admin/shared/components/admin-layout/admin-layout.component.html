@@ -1,5 +1,8 @@
 <header class="bg-primary header">
-  <nav class="navbar bg-primary container">
+  <nav
+    class="navbar bg-primary container"
+    [ngClass]="{'stretched': isShown && auth.isAuthenticated()}"
+  >
     <div class="nav-left d-flex center">
       <mat-icon routerLink="/" class="exit-icon">exit_to_app</mat-icon>
       <div class="logo-admin d-flex center">
@@ -7,12 +10,16 @@
           <mat-icon class="avatar-icon">person</mat-icon>
         </div>
         <span [routerLink]="['/admin', 'dashboard']">
-          Articles.net
+          <span class="logo-text">Articles.net</span>
           <span [routerLink]="['/admin', 'dashboard']" class="admin-text">Admin</span>
         </span>
       </div>
     </div>
-    <ul class="nav-right" *ngIf="auth.isAuthenticated()">
+    <ul
+      class="nav-right nav-menu"
+      *ngIf="auth.isAuthenticated()"
+      [ngClass]="{'shown': isShown}"
+    >
       <li routerLinkActive="active">
         <a [routerLink]="['/admin', 'dashboard']">Dashboard</a>
       </li>
@@ -23,6 +30,13 @@
         <a href="#" (click)="logout($event)">Log out</a>
       </li>
     </ul>
+    <button
+      *ngIf="auth.isAuthenticated()"
+      mat-icon-button color="basic"
+      class="menu-btn"
+      (click)="toggleMenu()">
+      <mat-icon>{{navbarOpened ? 'close' : 'menu'}}</mat-icon>
+    </button>
   </nav>
 </header>
 <div class="container">

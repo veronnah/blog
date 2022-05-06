@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Component, HostBinding, OnInit} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 
 @Component({
@@ -8,16 +7,26 @@ import {AuthService} from "../../services/auth.service";
   styleUrls: ['./admin-layout.component.scss']
 })
 export class AdminLayoutComponent implements OnInit {
+  public isShown: boolean = false;
+
+  @HostBinding('class.navbar-opened') navbarOpened = false;
 
   constructor(private router: Router,
-              public auth: AuthService) { }
+              public auth: AuthService) {
+  }
 
   ngOnInit(): void {
   }
 
-  public logout(event: Event){
+  public logout(event: Event) {
     event.preventDefault();
     this.auth.logout();
     this.router.navigate(['/admin', 'login']);
   }
+
+  public toggleMenu() {
+    this.navbarOpened = !this.navbarOpened;
+    this.isShown = !this.isShown;
+  }
+
 }

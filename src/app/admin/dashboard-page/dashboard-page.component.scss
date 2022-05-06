@@ -32,6 +32,13 @@
 
 table {
   margin-bottom: 40px;
+  overflow-x: auto;
+  white-space: nowrap;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+    background-color: $light-clr;
+  }
 
   th, td {
     font-size: 18px;
@@ -41,7 +48,7 @@ table {
     transition: .4s;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
       background-color: $light-clr;
     }
 
@@ -65,4 +72,8 @@ table {
   margin-top: 40px;
 }
 
-
+@media screen and(max-width: 1000px) {
+  table {
+    display: block;
+  }
+}
