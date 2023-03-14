@@ -2,7 +2,6 @@
 # https://angular-blog-437c6.web.app/
 
 Simple blog with admin panel
-
 ![image](https://user-images.githubusercontent.com/60988349/176957362-ef0400b6-502e-4399-8f0f-6d85b9e3ca3c.png)
 ![image](https://user-images.githubusercontent.com/60988349/176957475-0bf4eafe-9100-4033-9398-db4d511158a5.png)
 ![image](https://user-images.githubusercontent.com/60988349/176957565-0aa8f9ac-ad8f-40fe-b686-330770f21c2c.png)
